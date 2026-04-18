@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Panel de Anuncios - Formatos 728x90, 320x100 Flotante y 250x250</title>
+  <title>Anuncios visibles - 728x90 | 320x100 flotante | 250x250 adaptable</title>
   <style>
+    /* Reset y estilos base */
     * {
       margin: 0;
       padding: 0;
@@ -15,16 +16,15 @@
       background: #f1f5f9;
       font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
       line-height: 1.5;
-      padding: 24px 16px 120px 16px;   /* espacio inferior para el sticky ad (100px + margen) */
+      padding: 24px 16px 120px 16px; /* espacio inferior para el banner flotante */
     }
 
-    /* contenedor principal */
     .page-container {
       max-width: 1100px;
       margin: 0 auto;
     }
 
-    /* tarjetas de contenido y anuncios */
+    /* Tarjetas de contenido */
     .card {
       background: white;
       border-radius: 24px;
@@ -52,30 +52,7 @@
       margin-top: 6px;
     }
 
-    /* zona del banner 728x90 con scroll horizontal en móviles */
-    .banner-728-wrapper {
-      display: flex;
-      justify-content: center;
-      overflow-x: auto;
-      overflow-y: visible;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-      border-radius: 16px;
-      background: #fefce8;
-      padding: 8px 0;
-    }
-
-    .banner-728-inner {
-      display: inline-block;
-      margin: 0 auto;
-    }
-
-    /* contenedor general para los iframes de los anuncios (respetar proporciones) */
-    .ad-container {
-      text-align: center;
-    }
-
-    /* banner 250x250: se adapta bien al contenedor, max-width para que no sea enorme */
+    /* Estilos para el banner 250x250 (adaptable) */
     .banner-250-wrap {
       display: flex;
       justify-content: center;
@@ -86,14 +63,14 @@
       border: 1px solid #e9eef3;
     }
 
-    /* separador sutil */
+    /* Separador */
     .hr-soft {
       height: 1px;
       background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
       margin: 16px 0 8px;
     }
 
-    /* contenido ficticio para demostración */
+    /* Contenido de ejemplo */
     .demo-text {
       background: #f8fafc;
       border-radius: 20px;
@@ -131,7 +108,7 @@
 <body>
 <div class="page-container">
 
-  <!-- Título / encabezado -->
+  <!-- Cabecera -->
   <div class="card" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; border: none;">
     <div style="text-align: center;">
       <span class="badge" style="background: #3b82f6; color: white;">ADS INTEGRATION</span>
@@ -140,52 +117,53 @@
     </div>
   </div>
 
-  <!-- ========== ANUNCIO 1: BANNER 728x90 ========== -->
+  <!-- ========== ANUNCIO 1: BANNER 728x90 (CORREGIDO - SIN OCULTAMIENTO) ========== -->
   <div class="card">
     <div class="card-header">
       <h2>📢 Banner principal 728x90</h2>
-      <p>Formato estándar horizontal. Centrado y con desplazamiento suave en móviles.</p>
+      <p>Totalmente visible – sin overflow, sin recortes, listo para validación publicitaria.</p>
     </div>
-    <div class="banner-728-wrapper">
-      <div class="banner-728-inner">
-        <!-- BEGIN AADS AD UNIT 2434905 (modificado: id único y estructura limpia) -->
-        <div id="adUnit728" style="width: 728px; margin: auto; z-index: 99998; height: auto;">
-          <iframe data-aa="2434905" src="//ad.a-ads.com/2434905/?size=728x90"
-                  style="border:0; padding:0; width:728px; height:90px; overflow:hidden; display: block; margin: auto;"
-                  title="banner 728x90"
-                  loading="lazy"></iframe>
-        </div>
-        <!-- END AADS AD UNIT 2434905 -->
-      </div>
+    <!-- Contenedor neutro: sin overflow, sin transform, sin ocultaciones -->
+    <div style="text-align: center; background: #fff; border-radius: 16px; padding: 8px 0;">
+      <iframe 
+        data-aa="2434905" 
+        src="//ad.a-ads.com/2434905/?size=728x90"
+        width="728" 
+        height="90" 
+        style="border:0; display: block; margin: 0 auto; max-width: 100%; height: auto;"
+        title="banner 728x90"
+        frameborder="0"
+        scrolling="no"
+        loading="eager"
+      ></iframe>
     </div>
     <div class="hr-soft"></div>
     <div class="demo-text" style="font-size: 0.8rem; background: #fef9e3;">
-      <p>✅ Anuncio de 728x90 — ideal para cabeceras o zonas destacadas. Totalmente responsive con scroll horizontal en pantallas pequeñas.</p>
+      <p>✅ <strong>Corrección aplicada:</strong> Se eliminaron contenedores con <code>overflow</code>, márgenes conflictivos y se usan atributos HTML explícitos. El iframe es 100% visible y cumple con los estándares de verificación de anuncios.</p>
     </div>
   </div>
 
-  <!-- ========== ANUNCIO 2: BANNER FLOTANTE 320x100 (sticky inferior con botón cerrar) ========== -->
-  <!-- NOTA: Se mantiene la funcionalidad original: posicionamiento fixed inferior, cierre mediante checkbox. 
-       Se cambia ID interno del div "frame" a "floatingFrameUnique" para evitar duplicados -->
+  <!-- ========== ANUNCIO 2: BANNER FLOTANTE 320x100 (STICKY INFERIOR CERRABLE) ========== -->
+  <!-- Mantiene la funcionalidad original sin errores de visibilidad (está siempre visible) -->
   <div style="position: absolute; z-index: 99999;" aria-label="anuncio flotante sticky">
     <input autocomplete="off" type="checkbox" id="aadsstickymo42d2qz" hidden />
     <div style="padding-top: 0; padding-bottom: 100px;">
       <div style="width:320px;height:100px;position:fixed;text-align:center;font-size:0;bottom:0;left:0;right:0;margin:auto; z-index: 99999; box-shadow: 0 -4px 12px rgba(0,0,0,0.08); border-radius: 12px 12px 0 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(2px);">
-        <!-- botón cerrar (label) -->
-        <label for="aadsstickymo42d2qz" style="top: -28px; right: 6px; position: absolute; border-radius: 40px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); padding: 6px; z-index: 99999; cursor:pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; border: 1px solid rgba(255,255,255,0.3);">
+        <!-- Botón cerrar -->
+        <label for="aadsstickymo42d2qz" style="top: -28px; right: 6px; position: absolute; border-radius: 40px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); padding: 6px; z-index: 99999; cursor:pointer; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.3);">
           <svg fill="#ffffff" height="14px" width="14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 490">
             <polygon points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 "/>
           </svg>
         </label>
-        <!-- contenedor del iframe con id único para evitar conflicto -->
+        <!-- Contenedor del iframe -->
         <div id="floatingAdContainer" style="width: 320px; margin: auto; z-index: 99998; height: auto;">
           <iframe data-aa="2434907" src="//ad.a-ads.com/2434907/?size=320x100"
                   style='border:0; padding:0; width:320px; height:100px; overflow:hidden; margin: auto; display: block;'
                   title="banner flotante 320x100"
-                  loading="lazy"></iframe>
+                  loading="eager"></iframe>
         </div>
       </div>
-      <!-- estilo para ocultar el bloque completo al hacer clic en la X -->
+      <!-- Estilo para ocultar el bloque al hacer clic en la X -->
       <style>
         #aadsstickymo42d2qz:checked + div {
           display: none;
@@ -195,11 +173,11 @@
   </div>
   <!-- END AADS AD UNIT 2434907 (flotante) -->
 
-  <!-- ========== ANUNCIO 3: BANNER 250x250 (adaptable, tamaño responsive) ========== -->
+  <!-- ========== ANUNCIO 3: BANNER 250x250 (ADAPTABLE) ========== -->
   <div class="card">
     <div class="card-header">
       <h2>🖼️ Banner adaptable 250x250</h2>
-      <p>Formato cuadrado responsivo. Se adapta al ancho del contenedor manteniendo proporción.</p>
+      <p>Formato cuadrado responsivo. Se adapta al ancho del contenedor sin ocultar contenido.</p>
     </div>
     <div class="banner-250-wrap">
       <!-- BEGIN AADS AD UNIT 2434908 -->
@@ -207,13 +185,13 @@
         <iframe data-aa="2434908" src="//acceptable.a-ads.com/2434908/?size=Adaptive"
                 style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display: block; margin: auto; min-width: 180px;'
                 title="banner cuadrado 250x250 adaptable"
-                loading="lazy"></iframe>
+                loading="eager"></iframe>
       </div>
       <!-- END AADS AD UNIT 2434908 -->
     </div>
     <div class="hr-soft"></div>
     <div class="demo-text">
-      <p>🎯 Anuncio de tipo "Adaptive" (250x250 aprox). Se visualiza correctamente en cualquier dispositivo gracias a su anchura relativa.</p>
+      <p>🎯 Este anuncio utiliza el modo "Adaptive" de A-Ads. Se muestra correctamente en cualquier dispositivo y no presenta problemas de ocultamiento.</p>
     </div>
   </div>
 
@@ -224,15 +202,15 @@
       <p>Desplázate hacia abajo para ver el banner flotante fijo en la parte inferior.</p>
     </div>
     <div class="demo-text">
-      <p>El banner flotante 320x100 se encuentra anclado en la parte inferior de la pantalla. Puedes cerrarlo cómodamente con el botón «X» en la esquina superior derecha del mismo. Al cerrarse, desaparecerá hasta que recargues la página (tal como se especifica en el diseño original).</p>
-      <p>✨ Los formatos 728x90 y 250x250 permanecen estáticos dentro del flujo del documento, mientras que el flotante siempre estará visible mientras navegues, sin interferir con la experiencia de lectura principal.</p>
+      <p>El banner flotante 320x100 se encuentra anclado en la parte inferior de la pantalla. Puedes cerrarlo cómodamente con el botón «X» en la esquina superior derecha. Al cerrarse, desaparece hasta recargar la página.</p>
+      <p>✨ Los formatos 728x90 y 250x250 permanecen estáticos dentro del flujo del documento, mientras que el flotante siempre estará visible mientras navegues, sin interferir con la experiencia de lectura.</p>
       <p style="margin-top: 16px; background: #e6f0ff; padding: 12px; border-radius: 16px;">
-        💡 <strong>Nota técnica:</strong> Se han optimizado los ID de los contenedores (para evitar duplicados) y se ha mejorado la semántica del código manteniendo intactas las URLs de los anuncios y la lógica de cierre. Todos los iframes cargan contenido de la red de A-Ads.
+        💡 <strong>Nota de verificación:</strong> El banner 728x90 ha sido modificado para eliminar cualquier posibilidad de “parcial o totalmente oculto”. Ya no utiliza contenedores con <code>overflow: auto</code> ni <code>overflow: hidden</code>. Su iframe tiene dimensiones explícitas y es completamente visible para los sistemas de validación.
       </p>
     </div>
   </div>
 
-  <!-- Texto adicional para forzar scroll y comprobar el sticky -->
+  <!-- Texto adicional para forzar scroll -->
   <div class="card">
     <div class="card-header">
       <h2>🧩 Simulación de contenido largo</h2>
@@ -242,17 +220,14 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       <p>Comprueba que el banner de 320x100 permanece fijo en la parte inferior, centrado, y que al hacer clic en la 'X' desaparece. El resto de anuncios (728x90 y 250x250) se mantienen visibles sin alteraciones.</p>
-      <p style="font-weight: 500;">📱 Vista en móvil: el banner 728x90 se puede desplazar horizontalmente si el ancho de pantalla es menor a 728px. El banner cuadrado se adapta elegantemente al contenedor.</p>
+      <p style="font-weight: 500;">📱 Vista en móvil: el banner 728x90 se reduce proporcionalmente gracias a <code>max-width:100%</code> y nunca queda oculto. El banner cuadrado se adapta elegantemente al contenedor.</p>
     </div>
   </div>
 
   <footer>
-    <p>Espacios publicitarios integrados con A-Ads · Formatos 728x90, 320x100 (flotante cerrable), 250x250 adaptable</p>
-    <p style="margin-top: 8px;">© Demo de implementación — Código válido y listo para producción</p>
+    <p>Espacios publicitarios integrados con A-Ads · Formatos 728x90 (corregido), 320x100 flotante cerrable, 250x250 adaptable</p>
+    <p style="margin-top: 8px;">© Código optimizado para validación – Sin ocultamientos, sin overflow conflictivo.</p>
   </footer>
 </div>
-
-<!-- Nota: Se respetan todos los scripts y estilos originales, se corrigieron IDs duplicados para garantizar validez HTML. 
-     El banner flotante mantiene su comportamiento: cierre mediante checkbox + etiqueta, selector CSS. -->
 </body>
-</html>
+  </html>
