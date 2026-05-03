@@ -1,237 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Anuncios - Tamaños exactos: 728x90, 320x100 flotante, 250x250 adaptable</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <title>Reproductor de vídeo con banners</title>
+    
+    <style>
+        /* Contenedor general para centrar todo el contenido */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center; /* Para centrar los banners en línea */
+        }
 
-    body {
-      background: #f1f5f9;
-      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      line-height: 1.5;
-      padding: 24px 16px 120px 16px;
-    }
+        /* Estilo para los banners */
+        .banner-top, .banner-middle, .banner-bottom {
+            margin: 15px auto;
+            text-align: center;
+        }
 
-    .page-container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+        .banner-top iframe, .banner-middle iframe, .banner-bottom iframe {
+            display: block;
+            margin: 0 auto;
+        }
 
-    .card {
-      background: white;
-      border-radius: 24px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05);
-      padding: 20px 16px;
-      margin-bottom: 32px;
-    }
+        /* Contenedor del vídeo: se adapta al tamaño original */
+        .video-wrapper {
+            display: block;
+            margin: 20px auto;
+            background-color: black;
+            text-align: center;
+        }
 
-    .card-header {
-      margin-bottom: 20px;
-      border-left: 4px solid #3b82f6;
-      padding-left: 16px;
-    }
+        video {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            display: inline-block;
+            margin: 0 auto;
+        }
 
-    .card-header h2 {
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: #0f172a;
-    }
-
-    .card-header p {
-      font-size: 0.85rem;
-      color: #475569;
-      margin-top: 6px;
-    }
-
-    .banner-250-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 12px;
-      border: 1px solid #e9eef3;
-    }
-
-    .hr-soft {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
-      margin: 16px 0 8px;
-    }
-
-    .demo-text {
-      background: #f8fafc;
-      border-radius: 20px;
-      padding: 20px;
-      color: #1e293b;
-      font-size: 0.95rem;
-      border: 1px solid #e2e8f0;
-    }
-
-    .demo-text p {
-      margin-bottom: 12px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #eef2ff;
-      color: #1e40af;
-      font-size: 0.7rem;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: 30px;
-      margin-bottom: 12px;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.75rem;
-      color: #64748b;
-      margin-top: 40px;
-      padding: 16px;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    /* Contenedor del banner 728x90: ancho fijo y scroll horizontal solo si es necesario */
-    .banner-728-fixed {
-      width: 728px;
-      max-width: 100%;
-      overflow-x: auto;
-      overflow-y: visible;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    /* El iframe tendrá dimensiones exactas, sin estilos que las modifiquen */
-    .banner-728-fixed iframe {
-      display: block;
-      margin: 0 auto;
-      border: 0;
-    }
-  </style>
+        /* Para el banner nativo (puede ser responsive) */
+        .native-banner {
+            margin: 20px auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<div class="page-container">
 
-  <!-- Cabecera -->
-  <div class="card" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; border: none;">
-    <div style="text-align: center;">
-      <span class="badge" style="background: #3b82f6; color: white;">ADS INTEGRATION</span>
-      <h1 style="font-size: 1.8rem; margin-top: 8px; font-weight: 600;">Espacios publicitarios</h1>
-      <p style="opacity: 0.8; margin-top: 8px;">Formatos 728x90 · 320x100 flotante · 250x250 adaptable</p>
+<div class="container">
+    <!-- BANNER SUPERIOR: 320x50 -->
+    <div class="banner-top">
+        <script>
+            atOptions = {
+                'key' : '7dac06b9ab2998d0c42158e0c3a6d6bd',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+            };
+        </script>
+        <script src="https://www.highperformanceformat.com/7dac06b9ab2998d0c42158e0c3a6d6bd/invoke.js"></script>
     </div>
-  </div>
 
-  <!-- ========== ANUNCIO 1: BANNER 728x90 (TAMAÑO EXACTO) ========== -->
-  <div class="card">
-    <div class="card-header">
-      <h2>📢 Banner principal 728x90</h2>
-      <p>Tamaño fijo 728x90 píxeles – sin deformaciones, compatible con validación de plataforma.</p>
+    <!-- BANNER DE 300x250 (antes estaba abajo del vídeo, ahora aquí arriba) -->
+    <div class="banner-middle">
+        <script>
+            atOptions = {
+                'key' : '230c11ca0e8220909fdd96c47978f138',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script src="https://www.highperformanceformat.com/230c11ca0e8220909fdd96c47978f138/invoke.js"></script>
     </div>
-    <div class="banner-728-fixed">
-      <iframe 
-        data-aa="2434905" 
-        src="//ad.a-ads.com/2434905/?size=728x90"
-        width="728" 
-        height="90" 
-        frameborder="0"
-        scrolling="no"
-        loading="eager"
-        title="banner 728x90"
-      ></iframe>
-    </div>
-    <div class="hr-soft"></div>
-    <div class="demo-text" style="font-size: 0.8rem; background: #fef9e3;">
-      <p>✅ <strong>Corrección aplicada:</strong> El iframe tiene <code>width="728" height="90"</code> fijos, sin <code>max-width</code> ni <code>height:auto</code>. El contenedor tiene ancho fijo de 728px y scroll horizontal para móviles, pero las dimensiones internas coinciden exactamente con lo esperado por la red publicitaria.</p>
-    </div>
-  </div>
 
-  <!-- ========== ANUNCIO 2: BANNER FLOTANTE 320x100 (STICKY INFERIOR CERRABLE) ========== -->
-  <div style="position: absolute; z-index: 99999;" aria-label="anuncio flotante sticky">
-    <input autocomplete="off" type="checkbox" id="aadsstickymo42d2qz" hidden />
-    <div style="padding-top: 0; padding-bottom: 100px;">
-      <div style="width:320px;height:100px;position:fixed;text-align:center;font-size:0;bottom:0;left:0;right:0;margin:auto; z-index: 99999; box-shadow: 0 -4px 12px rgba(0,0,0,0.08); border-radius: 12px 12px 0 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(2px);">
-        <!-- Botón cerrar -->
-        <label for="aadsstickymo42d2qz" style="top: -28px; right: 6px; position: absolute; border-radius: 40px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); padding: 6px; z-index: 99999; cursor:pointer; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.3);">
-          <svg fill="#ffffff" height="14px" width="14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 490">
-            <polygon points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 "/>
-          </svg>
-        </label>
-        <div id="floatingAdContainer" style="width: 320px; margin: auto; z-index: 99998; height: auto;">
-          <iframe data-aa="2434907" src="//ad.a-ads.com/2434907/?size=320x100"
-                  style='border:0; padding:0; width:320px; height:100px; overflow:hidden; margin: auto; display: block;'
-                  title="banner flotante 320x100"
-                  loading="eager"></iframe>
-        </div>
-      </div>
-      <style>
-        #aadsstickymo42d2qz:checked + div {
-          display: none;
-        }
-      </style>
+    <!-- REPRODUCTOR DE VÍDEO -->
+    <div class="video-wrapper">
+        <video controls>
+            <source src="https://qu.ax/DpCe7.mp4" type="video/mp4">
+            Tu navegador no soporta el formato de vídeo.
+        </video>
     </div>
-  </div>
-  <!-- END AADS AD UNIT 2434907 -->
 
-  <!-- ========== ANUNCIO 3: BANNER 250x250 (ADAPTABLE) ========== -->
-  <div class="card">
-    <div class="card-header">
-      <h2>🖼️ Banner adaptable 250x250</h2>
-      <p>Formato cuadrado responsivo. Se adapta al ancho del contenedor sin alterar tamaños esperados.</p>
+    <!-- BANNER NATIVO (debajo del vídeo) -->
+    <div class="native-banner">
+        <script async="async" data-cfasync="false" src="https://pl29323233.profitablecpmratenetwork.com/27faa605cdd8da0279e8e38fff1edb84/invoke.js"></script>
+        <div id="container-27faa605cdd8da0279e8e38fff1edb84"></div>
     </div>
-    <div class="banner-250-wrap">
-      <div id="squareAdWrapper" style="width: 100%; max-width: 350px; margin: auto; position: relative; z-index: 99998;">
-        <iframe data-aa="2434908" src="//acceptable.a-ads.com/2434908/?size=Adaptive"
-                style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display: block; margin: auto; min-width: 180px;'
-                title="banner cuadrado 250x250 adaptable"
-                loading="eager"></iframe>
-      </div>
-    </div>
-    <div class="hr-soft"></div>
-    <div class="demo-text">
-      <p>🎯 Este anuncio utiliza el modo "Adaptive" de A-Ads. Su tamaño es flexible por diseño, por lo que no debe generar conflictos de validación.</p>
-    </div>
-  </div>
-
-  <!-- Contenido adicional -->
-  <div class="card">
-    <div class="card-header">
-      <h2>📄 Contenido de ejemplo</h2>
-      <p>Desplázate hacia abajo para ver el banner flotante fijo en la parte inferior.</p>
-    </div>
-    <div class="demo-text">
-      <p>El banner flotante 320x100 se encuentra anclado en la parte inferior de la pantalla. Puedes cerrarlo con la «X». Al cerrarse, desaparece hasta recargar la página.</p>
-      <p>✨ Los formatos 728x90 y 250x250 permanecen estáticos dentro del flujo del documento.</p>
-      <p style="margin-top: 16px; background: #e6f0ff; padding: 12px; border-radius: 16px;">
-        💡 <strong>Verificación de tamaño:</strong> El banner 728x90 ahora tiene dimensiones fijas e inmutables. La plataforma publicitaria detectará exactamente 728x90 píxeles y no mostrará el error "El tamaño no coincide".
-      </p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <h2>🧩 Simulación de contenido largo</h2>
-      <p>Comportamiento del sticky.</p>
-    </div>
-    <div class="demo-text">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-      <p>El banner 728x90 mantiene sus 728x90 píxeles incluso en móviles (con scroll horizontal).</p>
-    </div>
-  </div>
-
-  <footer>
-    <p>Espacios publicitarios con tamaños exactos · 728x90 fijo, 320x100 flotante, 250x250 adaptable</p>
-    <p style="margin-top: 8px;">© Código optimizado para validación – Sin errores de tamaño ni ocultamiento.</p>
-  </footer>
 </div>
+
+<!-- ANUNCIO PUSH (al final del body) -->
+<script src="https://pl29318879.profitablecpmratenetwork.com/d5/27/17/d527172b36d7e7930acb125416e3a9bc.js"></script>
+
 </body>
-  </html>
+</html>
